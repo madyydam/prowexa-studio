@@ -57,7 +57,7 @@ export function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[calc(100vh-72px)] flex items-center">
-      {/* Dark background with custom image */}
+      {/* Background with custom image */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
@@ -68,8 +68,6 @@ function Hero() {
           loading="eager"
           decoding="async"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
@@ -80,9 +78,9 @@ function Hero() {
           </div>
           <h1 className="mt-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
             Build Fast.<br />
-            <span className="text-gradient-brand">Scale Smart.</span>
+            <span className="text-brand">Scale Smart.</span>
           </h1>
-          <p className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 max-w-xl text-base md:text-lg text-white leading-relaxed">
             Prowexa Technologies Pvt. Ltd. is a next-generation product development company helping startups and
             businesses transform ideas into powerful, scalable digital solutions.
           </p>
