@@ -1,4 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { useEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import appCss from "../styles.css?url";
@@ -65,6 +66,13 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash) {
+      window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      window.scrollTo({ top: 0, behavior: "auto" });
+    }
+  }, []);
+
   return (
     <ThemeProvider>
       <Outlet />
