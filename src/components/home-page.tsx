@@ -131,25 +131,6 @@ function HeroVisual() {
   );
 }
 
-function _HeroPlaceholder() {
-  return (
-    <div />
-  );
-}
-
-function _Closer() {
-  return null;
-}
-
-// Original hero wrapper closure preserved below
-function _NoOp() {
-  return (
-    <div>
-      <div />
-    </div>
-  );
-}
-
 function FeatureStrip() {
   return (
     <section className="bg-gradient-brand text-primary-foreground">
