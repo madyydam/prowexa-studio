@@ -15,7 +15,7 @@ export function SiteHeader() {
           <img
             src={logo}
             alt="Prowexa Technologies"
-            className="h-10 w-auto rounded-lg"
+            className="h-9 md:h-11 w-auto"
           />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
