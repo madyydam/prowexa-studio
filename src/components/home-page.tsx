@@ -1,4 +1,3 @@
-import heroTech from "@/assets/hero-tech.jpg";
 import officeTeam from "@/assets/office-team.jpg";
 import officeWorkspace from "@/assets/office-workspace.jpg";
 import officeReception from "@/assets/office-reception.jpg";
@@ -104,21 +103,31 @@ function Hero() {
           </div>
         </div>
 
-        <div className="relative">
-          <div className="absolute -inset-10 bg-gradient-brand opacity-20 blur-3xl rounded-full animate-pulse-glow" />
-          <div className="relative animate-float-slow">
-            <div className="absolute -inset-2 rounded-[2rem] bg-gradient-brand opacity-40 blur-2xl" />
-            <img
-              src={heroTech}
-              alt="Prowexa futuristic tech workspace visualization"
-              width={1024}
-              height={1024}
-              className="relative rounded-[2rem] border border-border shadow-glow"
-            />
-          </div>
-        </div>
+        <HeroVisual />
       </div>
     </section>
+  );
+}
+
+function HeroVisual() {
+  return (
+    <div className="relative aspect-square w-full max-w-[520px] mx-auto">
+      <div className="absolute inset-0 bg-gradient-brand opacity-25 blur-3xl rounded-full animate-pulse-glow" />
+      <div className="absolute inset-6 rounded-[3rem] border border-brand/40 animate-float-slow" />
+      <div className="absolute inset-14 rounded-[2.5rem] border border-brand-glow/60 shadow-glow animate-float-slow" style={{ animationDelay: "1s" }} />
+      <div className="absolute inset-24 rounded-[2rem] border-2 border-brand-glow/80 shadow-glow animate-float-slow" style={{ animationDelay: "2s" }} />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <div className="grid grid-cols-3 gap-3">
+          {Array.from({ length: 9 }).map((_, i) => (
+            <span
+              key={i}
+              className="h-2.5 w-2.5 rounded-full bg-gradient-brand shadow-glow animate-pulse-glow"
+              style={{ animationDelay: `${i * 0.2}s` }}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 

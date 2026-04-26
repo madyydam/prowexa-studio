@@ -1,4 +1,5 @@
 import { ThemeToggle } from "./theme-toggle";
+import logo from "@/assets/prowexa-logo.png";
 
 export function SiteHeader() {
   const links = [
@@ -10,13 +11,12 @@ export function SiteHeader() {
   return (
     <header className="sticky top-0 z-50 backdrop-blur-xl bg-background/70 border-b border-border">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
-        <a href="#top" className="flex items-center gap-2">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground font-bold shadow-glow">
-            P
-          </span>
-          <span className="font-semibold tracking-tight">
-            Prowexa <span className="text-muted-foreground font-normal text-sm">Technologies</span>
-          </span>
+        <a href="#top" className="flex items-center" aria-label="Prowexa Technologies home">
+          <img
+            src={logo}
+            alt="Prowexa Technologies"
+            className="h-10 w-auto rounded-lg"
+          />
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm text-muted-foreground">
           {links.map((l) => (
