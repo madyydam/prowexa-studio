@@ -1,5 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { useEffect, useLayoutEffect } from "react";
+import { useLayoutEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import appCss from "../styles.css?url";
@@ -58,6 +58,12 @@ function RootShell({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body>
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              'try{history.scrollRestoration="manual";if(location.hash){history.replaceState(null,"",location.pathname+location.search)}scrollTo(0,0)}catch(e){}',
+          }}
+        />
         {children}
         <Scripts />
       </body>
@@ -66,11 +72,30 @@ function RootShell({ children }: { children: React.ReactNode }) {
 }
 
 function RootComponent() {
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.hash) {
-      window.history.replaceState(null, "", window.location.pathname + window.location.search);
-      window.scrollTo({ top: 0, behavior: "auto" });
-    }
+  useLayoutEffect(() => {
+    if (typeof window === "undefined") return;
+
+    window.history.scrollRestoration = "manual";
+
+    const resetToTop = () => {
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname + window.location.search);
+      }
+      window.scrollTo(0, 0);
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+
+    resetToTop();
+    const frame = window.requestAnimationFrame(resetToTop);
+    const timer = window.setTimeout(resetToTop, 120);
+    window.addEventListener("pageshow", resetToTop);
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+      window.clearTimeout(timer);
+      window.removeEventListener("pageshow", resetToTop);
+    };
   }, []);
 
   return (
