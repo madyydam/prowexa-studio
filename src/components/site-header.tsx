@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import { ThemeToggle } from "./theme-toggle";
 import logo from "@/assets/prowexa-logo.png";
 

@@ -194,9 +194,22 @@
   0%, 100% { opacity: 0.6; }
   50% { opacity: 1; }
 }
+@keyframes fade-up {
+  0% { opacity: 0; transform: translateY(18px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
 @utility animate-float-slow {
   animation: float-slow 6s ease-in-out infinite;
 }
 @utility animate-pulse-glow {
   animation: pulse-glow 4s ease-in-out infinite;
+}
+@utility animate-fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+@utility hover-lift {
+  transition: transform 220ms ease, border-color 220ms ease, box-shadow 220ms ease, opacity 220ms ease;
+}
+@utility hover-lift-active {
+  transform: translateY(-4px);
 }
