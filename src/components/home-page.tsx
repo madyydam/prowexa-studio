@@ -72,11 +72,11 @@ function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
         <div className="max-w-3xl animate-fade-up">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
+          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-black/40 px-4 py-1.5 text-xs text-white/80 backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-brand-glow" />
             Next-gen product engineering
           </div>
-          <h1 className="mt-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl">
+          <h1 className="mt-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl text-white">
             Build Fast.<br />
             <span className="text-brand">Scale Smart.</span>
           </h1>
@@ -92,13 +92,13 @@ function Hero() {
               { icon: TrendingUp, label: "Business → Success" },
             ].map((step, i) => (
               <div key={step.label} className="flex items-center gap-3">
-                <div className="flex items-center gap-2 rounded-full border border-border bg-surface/70 px-4 py-2 backdrop-blur">
+                <div className="flex items-center gap-2 rounded-full border border-border bg-black/40 px-4 py-2 backdrop-blur">
                   <span className="flex h-7 w-7 items-center justify-center rounded-full bg-gradient-brand text-primary-foreground">
                     <step.icon className="h-3.5 w-3.5" />
                   </span>
-                  <span className="font-medium">{step.label}</span>
+                  <span className="font-medium text-white">{step.label}</span>
                 </div>
-                {i < 2 && <ArrowRight className="h-4 w-4 text-muted-foreground" />}
+                {i < 2 && <ArrowRight className="h-4 w-4 text-white/60" />}
               </div>
             ))}
           </div>
