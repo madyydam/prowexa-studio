@@ -133,12 +133,18 @@
   --brand-glow: oklch(0.62 0.22 310);
   --brand-soft: oklch(0.92 0.04 305);
 
-  --gradient-hero: radial-gradient(ellipse at 70% 30%, oklch(0.62 0.22 310 / 0.18), transparent 60%),
-                   linear-gradient(135deg, oklch(0.96 0.02 305), oklch(0.92 0.04 305));
+  --nav-background: oklch(0.15 0.045 305 / 0.92);
+  --nav-foreground: oklch(0.98 0.01 300);
+  --nav-muted: oklch(0.78 0.03 300);
+  --nav-border: oklch(1 0 0 / 12%);
+  --nav-surface: oklch(0.22 0.05 305 / 0.78);
+
+  --gradient-hero: radial-gradient(ellipse at 70% 30%, oklch(0.62 0.22 310 / 0.16), transparent 60%),
+                   linear-gradient(135deg, oklch(0.99 0.008 305), oklch(0.94 0.035 305));
   --gradient-brand: linear-gradient(135deg, var(--brand) 0%, var(--brand-glow) 100%);
   --gradient-soft: linear-gradient(180deg, transparent, oklch(0.62 0.22 310 / 0.06));
   --shadow-glow: 0 20px 60px -20px oklch(0.5 0.2 310 / 0.35);
-  --shadow-card: 0 10px 40px -15px oklch(0.42 0.18 305 / 0.18);
+  --shadow-card: 0 18px 55px -30px oklch(0.35 0.16 305 / 0.28);
 }
 
 @layer base {
