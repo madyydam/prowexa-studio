@@ -3,6 +3,7 @@ import officeWorkspace from "@/assets/office-workspace.jpg";
 import officeReception from "@/assets/office-reception.jpg";
 import officeNight from "@/assets/office-night.jpg";
 import officeCoding from "@/assets/office-coding.jpg";
+import heroCity from "@/assets/hero-city.jpg";
 import {
   ArrowRight,
   Lightbulb,
@@ -52,10 +53,22 @@ export function HomePage() {
 
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gradient-hero">
-      <div className="absolute inset-0 bg-gradient-soft pointer-events-none" />
-      <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:py-28 lg:grid-cols-2 lg:items-center">
-        <div className="relative z-10">
+    <section className="relative overflow-hidden min-h-[calc(100vh-72px)] flex items-center">
+      {/* Dark city background */}
+      <div className="absolute inset-0">
+        <img
+          src={heroCity}
+          alt="Futuristic city skyline at night"
+          className="h-full w-full object-cover"
+          width={1920}
+          height={1080}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
+      </div>
+
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
+        <div className="max-w-3xl">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-brand-glow" />
             Next-gen product engineering
@@ -64,12 +77,12 @@ function Hero() {
             Build Fast.<br />
             <span className="text-gradient-brand">Scale Smart.</span>
           </h1>
-          <p className="mt-6 max-w-xl text-lg text-muted-foreground leading-relaxed">
+          <p className="mt-5 max-w-xl text-base md:text-lg text-muted-foreground leading-relaxed">
             Prowexa Technologies Pvt. Ltd. is a next-generation product development company helping startups and
             businesses transform ideas into powerful, scalable digital solutions.
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-3 text-sm">
+          <div className="mt-7 flex flex-wrap items-center gap-3 text-sm">
             {[
               { icon: Lightbulb, label: "Idea → MVP" },
               { icon: Rocket, label: "MVP → Scale" },
@@ -87,7 +100,7 @@ function Hero() {
             ))}
           </div>
 
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#contact"
               className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition"
@@ -102,32 +115,8 @@ function Hero() {
             </a>
           </div>
         </div>
-
-        <HeroVisual />
       </div>
     </section>
-  );
-}
-
-function HeroVisual() {
-  return (
-    <div className="relative aspect-square w-full max-w-[520px] mx-auto">
-      <div className="absolute inset-0 bg-gradient-brand opacity-25 blur-3xl rounded-full animate-pulse-glow" />
-      <div className="absolute inset-6 rounded-[3rem] border border-brand/40 animate-float-slow" />
-      <div className="absolute inset-14 rounded-[2.5rem] border border-brand-glow/60 shadow-glow animate-float-slow" style={{ animationDelay: "1s" }} />
-      <div className="absolute inset-24 rounded-[2rem] border-2 border-brand-glow/80 shadow-glow animate-float-slow" style={{ animationDelay: "2s" }} />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="grid grid-cols-3 gap-3">
-          {Array.from({ length: 9 }).map((_, i) => (
-            <span
-              key={i}
-              className="h-2.5 w-2.5 rounded-full bg-gradient-brand shadow-glow animate-pulse-glow"
-              style={{ animationDelay: `${i * 0.2}s` }}
-            />
-          ))}
-        </div>
-      </div>
-    </div>
   );
 }
 
