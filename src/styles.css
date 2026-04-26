@@ -37,6 +37,11 @@
   --color-brand-soft: var(--brand-soft);
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
+  --color-nav-background: var(--nav-background);
+  --color-nav-foreground: var(--nav-foreground);
+  --color-nav-muted: var(--nav-muted);
+  --color-nav-border: var(--nav-border);
+  --color-nav-surface: var(--nav-surface);
 }
 
 /* Default = DARK theme */
