@@ -1,5 +1,5 @@
 import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
-import { useEffect } from "react";
+import { useEffect, useLayoutEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import appCss from "../styles.css?url";
@@ -31,10 +31,10 @@ export const Route = createRootRoute({
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Prowexa Technologies — Build Fast. Scale Smart." },
-      { name: "description", content: "Prowexa Technologies Pvt. Ltd. — next-generation product development. From MVP to scale." },
+      { title: "Prowexa Technologies | Build Fast. Scale Smart." },
+      { name: "description", content: "Prowexa Technologies Pvt. Ltd. builds next-generation product development solutions from MVP to scale." },
       { name: "author", content: "Prowexa Technologies" },
-      { property: "og:title", content: "Prowexa Technologies — Build Fast. Scale Smart." },
+      { property: "og:title", content: "Prowexa Technologies | Build Fast. Scale Smart." },
       { property: "og:description", content: "Next-generation product development company building scalable digital solutions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
