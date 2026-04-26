@@ -3,7 +3,7 @@ import officeWorkspace from "@/assets/office-workspace.jpg";
 import officeReception from "@/assets/office-reception.jpg";
 import officeNight from "@/assets/office-night.jpg";
 import officeCoding from "@/assets/office-coding.jpg";
-import heroCity from "@/assets/hero-city.jpg";
+import heroBg from "@/assets/hero-bg.png";
 import {
   ArrowRight,
   Lightbulb,
@@ -61,11 +61,11 @@ export function HomePage() {
 function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[calc(100vh-72px)] flex items-center">
-      {/* Dark city background */}
+      {/* Dark background with custom image */}
       <div className="absolute inset-0">
         <img
-          src={heroCity}
-          alt="Futuristic city skyline at night"
+          src={heroBg}
+          alt="Custom hero background"
           className="h-full w-full object-cover"
           width={1920}
           height={1080}
