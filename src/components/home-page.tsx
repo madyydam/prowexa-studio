@@ -32,12 +32,8 @@ import {
   Megaphone,
 } from "lucide-react";
 
-function scrollToSection(id: string) {
-  const target = document.getElementById(id);
-  if (!target) return;
-  window.history.replaceState(null, "", window.location.pathname + window.location.search);
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+import { scrollToSection } from "@/utils/scroll";
+import { Footer } from "./footer";
 
 export function HomePage() {
   return (
@@ -65,10 +61,12 @@ function Hero() {
       <div className="absolute inset-0">
         <img
           src={heroBg}
-          alt="Custom hero background"
+          alt="Prowexa Technologies Hero Background"
           className="h-full w-full object-cover"
           width={1920}
           height={1080}
+          loading="eager"
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
@@ -511,43 +509,3 @@ function Contact() {
   );
 }
 
-function Footer() {
-  return (
-    <footer className="border-t border-border bg-surface/40">
-      <div className="mx-auto max-w-7xl px-6 py-14 grid gap-10 md:grid-cols-3">
-        <div>
-          <div className="flex items-center gap-2">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground font-bold shadow-glow">
-              P
-            </span>
-            <span className="font-semibold">Prowexa Technologies</span>
-          </div>
-          <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-            Turning ideas into scalable digital products, from MVP to global scale.
-          </p>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold">Address</h4>
-          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            4th floor, Silviana,<br />
-            Opposite Gera's Regent Park and Towers,<br />
-            Baner, Pune
-          </p>
-        </div>
-        <div>
-          <h4 className="text-sm font-semibold">Contact</h4>
-          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
-            <li><a href="mailto:info@prowexa.com" className="hover:text-foreground">info@prowexa.com</a></li>
-            <li><a href="tel:7030247209" className="hover:text-foreground">7030247209</a></li>
-            <li><a href="https://prowexa.com" className="hover:text-foreground">prowexa.com</a></li>
-          </ul>
-        </div>
-      </div>
-      <div className="border-t border-border">
-        <div className="mx-auto max-w-7xl px-6 py-6 text-center text-xs text-muted-foreground">
-          © 2025 Prowexa Technologies Pvt. Ltd. All rights reserved
-        </div>
-      </div>
-    </footer>
-  );
-}

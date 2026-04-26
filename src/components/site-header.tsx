@@ -3,13 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { ThemeToggle } from "./theme-toggle";
 import logo from "@/assets/prowexa-logo.png";
 
-function scrollToSection(event: MouseEvent<HTMLAnchorElement>, id: string) {
-  event.preventDefault();
-  const target = document.getElementById(id);
-  if (!target) return;
-  window.history.replaceState(null, "", window.location.pathname + window.location.search);
-  target.scrollIntoView({ behavior: "smooth", block: "start" });
-}
+import { scrollToSection } from "@/utils/scroll";
 
 export function SiteHeader() {
   const links = [
@@ -30,7 +24,7 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-8 text-sm text-nav-muted">
           {links.map((l) => (
-            <a key={l.href} href={l.href} onClick={(event) => scrollToSection(event, l.target)} className="hover:text-nav-foreground transition-colors">
+            <a key={l.href} href={l.href} onClick={(event) => { event.preventDefault(); scrollToSection(l.target); }} className="hover:text-nav-foreground transition-colors">
               {l.label}
             </a>
           ))}
@@ -48,7 +42,7 @@ export function SiteHeader() {
           </Link>
           <a
             href="#contact"
-            onClick={(event) => scrollToSection(event, "contact")}
+            onClick={(event) => { event.preventDefault(); scrollToSection("contact"); }}
             className="hidden sm:inline-flex items-center rounded-full bg-gradient-brand px-5 py-2 text-sm font-medium text-primary-foreground shadow-glow hover:opacity-90 transition"
           >
             Let's Connect
