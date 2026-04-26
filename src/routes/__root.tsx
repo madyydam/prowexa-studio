@@ -1,8 +1,6 @@
-import { Outlet, Link, createRootRoute, HeadContent, Scripts } from "@tanstack/react-router";
+import { Outlet, Link, createRootRoute } from "@tanstack/react-router";
 import { useLayoutEffect } from "react";
 import { ThemeProvider } from "@/components/theme-provider";
-
-import appCss from "../styles.css?url";
 
 function NotFoundComponent() {
   return (
@@ -27,54 +25,9 @@ function NotFoundComponent() {
 }
 
 export const Route = createRootRoute({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Prowexa Technologies | Build Fast. Scale Smart." },
-      { name: "description", content: "Prowexa Technologies Pvt. Ltd. builds next-generation product development solutions from MVP to scale." },
-      { name: "author", content: "Prowexa Technologies" },
-      { property: "og:title", content: "Prowexa Technologies | Build Fast. Scale Smart." },
-      { property: "og:description", content: "Next-generation product development company building scalable digital solutions." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary_large_image" },
-    ],
-    links: [
-      {
-        rel: "icon",
-        type: "image/png",
-        href: "/favicon.png",
-      },
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-    ],
-  }),
-  shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,
 });
-
-function RootShell({ children }: { children: React.ReactNode }) {
-  return (
-    <html lang="en" className="dark">
-      <head>
-        <HeadContent />
-      </head>
-      <body>
-        <script
-          dangerouslySetInnerHTML={{
-            __html:
-              'try{history.scrollRestoration="manual";if(location.hash){history.replaceState(null,"",location.pathname+location.search)}scrollTo(0,0)}catch(e){}',
-          }}
-        />
-        {children}
-        <Scripts />
-      </body>
-    </html>
-  );
-}
 
 function RootComponent() {
   useLayoutEffect(() => {
