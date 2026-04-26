@@ -32,6 +32,13 @@ import {
   Megaphone,
 } from "lucide-react";
 
+function scrollToSection(id: string) {
+  const target = document.getElementById(id);
+  if (!target) return;
+  window.history.replaceState(null, "", window.location.pathname + window.location.search);
+  target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
 export function HomePage() {
   return (
     <main id="top">
@@ -68,7 +75,7 @@ function Hero() {
       </div>
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6 py-12 md:py-16">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl animate-fade-up">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
             <Sparkles className="h-3.5 w-3.5 text-brand-glow" />
             Next-gen product engineering
@@ -103,12 +110,20 @@ function Hero() {
           <div className="mt-8 flex flex-wrap gap-4">
             <a
               href="#contact"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("contact");
+              }}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition"
             >
               Get Started <ArrowRight className="h-4 w-4" />
             </a>
             <a
               href="#about"
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToSection("about");
+              }}
               className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-7 py-3.5 text-sm font-semibold backdrop-blur hover:bg-surface-elevated transition"
             >
               About Us
@@ -129,11 +144,15 @@ function FeatureStrip() {
             <Megaphone className="h-5 w-5" />
           </span>
           <p className="text-sm md:text-base font-medium">
-            Prowexa Technologies Pvt. Ltd. — Turning Ideas into Scalable Digital Solutions
+            Prowexa Technologies Pvt. Ltd. | Turning Ideas into Scalable Digital Solutions
           </p>
         </div>
         <a
           href="#contact"
+          onClick={(event) => {
+            event.preventDefault();
+            scrollToSection("contact");
+          }}
           className="inline-flex items-center gap-2 rounded-full bg-primary-foreground/15 hover:bg-primary-foreground/25 px-6 py-2.5 text-sm font-semibold backdrop-blur transition"
         >
           Let's Connect <ArrowRight className="h-4 w-4" />
@@ -173,12 +192,12 @@ function About() {
             {
               icon: Target,
               title: "Real Problem Solvers",
-              body: "We don't just develop software — we build products that solve real problems at scale.",
+              body: "We don't just develop software; we build products that solve real problems at scale.",
             },
           ].map((c) => (
             <div
               key={c.title}
-              className="group relative rounded-3xl border border-border bg-card p-8 shadow-card hover:-translate-y-1 transition"
+              className="group relative rounded-3xl border border-border bg-card p-8 shadow-card hover-lift hover:-translate-y-1 animate-fade-up"
             >
               <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow">
                 <c.icon className="h-5 w-5" />
@@ -213,11 +232,11 @@ function InsideProwexa() {
           {images.map((img) => (
             <div
               key={img.label}
-              className={`group relative overflow-hidden rounded-3xl border border-border shadow-card ${img.span}`}
+              className={`group relative overflow-hidden rounded-3xl border border-border shadow-card hover-lift hover:-translate-y-1 animate-fade-up ${img.span}`}
             >
               <img
                 src={img.src}
-                alt={`Prowexa office — ${img.label}`}
+                alt={`Prowexa office: ${img.label}`}
                 loading="lazy"
                 className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
@@ -253,7 +272,7 @@ function MissionVision() {
         ].map((c) => (
           <div
             key={c.tag}
-            className="relative overflow-hidden rounded-3xl border border-border bg-gradient-hero p-10 shadow-card"
+            className="relative overflow-hidden rounded-3xl border border-border bg-gradient-hero p-10 shadow-card hover-lift hover:-translate-y-1 animate-fade-up"
           >
             <div className="absolute -top-20 -right-20 h-60 w-60 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
             <div className="relative">
@@ -288,13 +307,13 @@ function Services() {
         <SectionHeading
           eyebrow="Services"
           title="What we build"
-          subtitle="A full-stack product team — design, engineering, AI and infra under one roof."
+          subtitle="A full-stack product team for design, engineering, AI and infra under one roof."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
             <div
               key={s.title}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-card hover:border-brand transition"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-card hover-lift hover:-translate-y-1 hover:border-brand animate-fade-up"
             >
               <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl group-hover:opacity-30 transition" />
               <div className="relative">
@@ -326,7 +345,7 @@ function Approach() {
         <SectionHeading eyebrow="How we work" title="Our Approach" />
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           {items.map((i) => (
-            <div key={i.title} className="rounded-3xl border border-border bg-card p-6 shadow-card">
+            <div key={i.title} className="rounded-3xl border border-border bg-card p-6 shadow-card hover-lift hover:-translate-y-1 animate-fade-up">
               <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
                 <i.icon className="h-4 w-4" />
               </span>
@@ -357,7 +376,7 @@ function WhyUs() {
             A product partner built for <span className="text-gradient-brand">founders & teams</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            We blend the speed of a startup with the rigor of an enterprise team — so you can ship faster without
+            We blend the speed of a startup with the rigor of an enterprise team, so you can ship faster without
             compromising quality.
           </p>
         </div>
@@ -365,7 +384,7 @@ function WhyUs() {
           {items.map((t) => (
             <div
               key={t}
-              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-card"
+              className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-card hover-lift hover:-translate-y-1 animate-fade-up"
             >
               <CheckCircle2 className="h-5 w-5 text-brand-glow flex-none" />
               <span className="font-medium">{t}</span>
@@ -387,7 +406,7 @@ function EdTech() {
   return (
     <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
-        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-14 shadow-card">
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-14 shadow-card animate-fade-up">
           <div className="absolute -top-32 -left-20 h-80 w-80 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
           <div className="relative grid gap-10 lg:grid-cols-2 lg:items-center">
             <div>
@@ -431,7 +450,7 @@ function CompanyDetails() {
         <SectionHeading eyebrow="Company" title="Company Details" />
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {details.map((d) => (
-            <div key={d.label} className="rounded-3xl border border-border bg-card p-6 shadow-card">
+            <div key={d.label} className="rounded-3xl border border-border bg-card p-6 shadow-card hover-lift hover:-translate-y-1 animate-fade-up">
               <div className="flex items-center gap-3 text-muted-foreground">
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground">
                   <d.icon className="h-4 w-4" />
@@ -451,14 +470,14 @@ function Contact() {
   return (
     <section id="contact" className="py-24">
       <div className="mx-auto max-w-5xl px-6">
-        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-16 shadow-glow text-center">
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-16 shadow-glow text-center animate-fade-up">
           <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-brand opacity-30 blur-3xl" />
           <div className="relative">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
               Let's build something amazing together <span className="inline-block">🚀</span>
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
-              Tell us about your idea — we'll help you turn it into a product.
+              Tell us about your idea. We'll help you turn it into a product.
             </p>
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {[
@@ -504,7 +523,7 @@ function Footer() {
             <span className="font-semibold">Prowexa Technologies</span>
           </div>
           <p className="mt-4 text-sm text-muted-foreground max-w-xs">
-            Turning ideas into scalable digital products — from MVP to global scale.
+            Turning ideas into scalable digital products, from MVP to global scale.
           </p>
         </div>
         <div>

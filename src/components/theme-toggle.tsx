@@ -8,7 +8,7 @@ export function ThemeToggle() {
     <button
       onClick={toggle}
       aria-label="Toggle theme"
-      className="relative inline-flex h-10 w-[68px] items-center rounded-full border border-border bg-surface transition-colors hover:bg-surface-elevated"
+      className="relative inline-flex h-10 w-[68px] items-center rounded-full border border-nav-border bg-nav-surface text-nav-muted transition-colors hover:bg-nav-surface/90"
     >
       <span
         className={`absolute top-1 flex h-8 w-8 items-center justify-center rounded-full bg-gradient-brand text-primary-foreground shadow-glow transition-all duration-300 ${
