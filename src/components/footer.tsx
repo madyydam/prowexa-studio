@@ -16,9 +16,7 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Address</h4>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            4th floor, Silviana,<br />
-            Opposite Gera's Regent Park and Towers,<br />
-            Baner, Pune
+            Prowexa Technologies <br>Smartworks 43EQ, Plot A, opposite Bharti Vidyapeeth School,<br> Balewadi, Pune, Maharashtra 411045
           </p>
         </div>
         <div>
