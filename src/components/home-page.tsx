@@ -13,7 +13,6 @@ import {
   Smartphone,
   Cloud,
   Cpu,
-  Palette,
   Server,
   Zap,
   Target,
@@ -30,6 +29,18 @@ import {
   FileText,
   CheckCircle2,
   Megaphone,
+  Users,
+  BriefcaseBusiness,
+  ShoppingCart,
+  Truck,
+  HeartPulse,
+  BookOpen,
+  Banknote,
+  CalendarCheck,
+  MessageCircle,
+  Globe2,
+  MonitorSmartphone,
+  LifeBuoy,
 } from "lucide-react";
 
 import { scrollToSection } from "@/utils/scroll";
@@ -44,20 +55,40 @@ export function HomePage() {
       <InsideProwexa />
       <MissionVision />
       <Services />
-      <Approach />
       <WhyUs />
+      <Industries />
       <EdTech />
+      <ContactCTA />
       <CompanyDetails />
       <Contact />
+      <WhatsAppButton />
       <Footer />
     </main>
   );
 }
 
+/* ─────────────────────── WhatsApp Floating Button ─────────────────────── */
+function WhatsAppButton() {
+  return (
+    <a
+      href="https://wa.me/917030247209?text=Hi%20Prowexa%2C%20I%20would%20like%20to%20discuss%20a%20project"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Chat on WhatsApp"
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full shadow-2xl transition-transform hover:scale-110"
+      style={{ background: "#25D366" }}
+    >
+      <svg viewBox="0 0 32 32" className="h-7 w-7 fill-white" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16 0C7.163 0 0 7.163 0 16c0 2.824.737 5.478 2.027 7.789L0 32l8.454-2.217A15.94 15.94 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.066 22.064c-.334.94-1.957 1.797-2.69 1.857-.733.061-1.43.366-4.822-1.004-4.074-1.651-6.677-5.804-6.878-6.07-.2-.267-1.63-2.168-1.63-4.135s1.03-2.934 1.396-3.334c.366-.4.8-.5 1.067-.5l.767.014c.247.01.578-.094.906.693.334.8 1.134 2.767 1.234 2.968.1.2.167.434.033.7-.133.267-.2.434-.4.667-.2.234-.42.523-.6.7-.2.2-.407.416-.175.816.234.4 1.04 1.716 2.234 2.78 1.534 1.366 2.826 1.79 3.226 1.99.4.2.633.167.867-.1.233-.267 1-.1 1.166.3.167.4.167 2.1-.5 2.898z"/>
+      </svg>
+    </a>
+  );
+}
+
+/* ─────────────────────── Hero ─────────────────────── */
 function Hero() {
   return (
     <section className="relative overflow-hidden min-h-[calc(100vh-72px)] flex items-center">
-      {/* Background with custom image */}
       <div className="absolute inset-0">
         <img
           src={heroBg}
@@ -76,13 +107,12 @@ function Hero() {
             <Sparkles className="h-3.5 w-3.5 text-brand-glow" />
             Next-gen product engineering
           </div>
-          <h1 className="mt-6 text-5xl font-bold tracking-tight md:text-6xl lg:text-7xl text-white">
-            Build Fast.<br />
-            <span className="text-brand">Scale Smart.</span>
+          <h1 className="mt-6 text-4xl font-bold tracking-tight md:text-5xl lg:text-6xl text-white">
+            Transforming Ideas into<br />
+            <span className="text-brand">Scalable Digital Solutions</span>
           </h1>
-          <p className="mt-5 max-w-xl text-base md:text-lg text-white leading-relaxed">
-            Prowexa Technologies Pvt. Ltd. is a next-generation product development company helping startups and
-            businesses transform ideas into powerful, scalable digital solutions.
+          <p className="mt-5 max-w-2xl text-base md:text-lg text-white/90 leading-relaxed">
+            Custom Software Development, AI Solutions, Web Applications, Mobile Apps &amp; Technology Consulting.
           </p>
 
           <div className="mt-7 flex flex-wrap items-center gap-3 text-sm">
@@ -112,17 +142,17 @@ function Hero() {
               }}
               className="inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition"
             >
-              Get Started <ArrowRight className="h-4 w-4" />
+              Get a Free Consultation <ArrowRight className="h-4 w-4" />
             </a>
             <a
-              href="#about"
+              href="#contact"
               onClick={(event) => {
                 event.preventDefault();
-                scrollToSection("about");
+                scrollToSection("contact");
               }}
-              className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-7 py-3.5 text-sm font-semibold backdrop-blur hover:bg-surface-elevated transition"
+              className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition"
             >
-              About Us
+              Request a Quote
             </a>
           </div>
         </div>
@@ -131,6 +161,7 @@ function Hero() {
   );
 }
 
+/* ─────────────────────── Feature Strip ─────────────────────── */
 function FeatureStrip() {
   return (
     <section className="bg-gradient-brand text-primary-foreground">
@@ -158,6 +189,7 @@ function FeatureStrip() {
   );
 }
 
+/* ─────────────────────── Section Heading ─────────────────────── */
 function SectionHeading({ eyebrow, title, subtitle }: { eyebrow: string; title: string; subtitle?: string }) {
   return (
     <div className="mx-auto max-w-3xl text-center">
@@ -168,6 +200,7 @@ function SectionHeading({ eyebrow, title, subtitle }: { eyebrow: string; title: 
   );
 }
 
+/* ─────────────────────── About ─────────────────────── */
 function About() {
   return (
     <section id="about" className="py-24">
@@ -208,6 +241,7 @@ function About() {
   );
 }
 
+/* ─────────────────────── Inside Prowexa ─────────────────────── */
 function InsideProwexa() {
   const images = [
     { src: officeReception, label: "Reception", span: "md:col-span-2 md:row-span-2" },
@@ -248,6 +282,7 @@ function InsideProwexa() {
   );
 }
 
+/* ─────────────────────── Mission & Vision ─────────────────────── */
 function MissionVision() {
   return (
     <section className="py-24">
@@ -263,7 +298,7 @@ function MissionVision() {
             icon: Sparkles,
             tag: "Vision",
             title: "A trusted global product partner",
-            body: "To become a trusted global product engineering partner.",
+            body: "To become a trusted global product engineering partner known for innovation, quality, and results.",
           },
         ].map((c) => (
           <div
@@ -288,22 +323,47 @@ function MissionVision() {
   );
 }
 
+/* ─────────────────────── Services ─────────────────────── */
 function Services() {
   const services = [
-    { icon: Code2, title: "Software Development", body: "Custom enterprise-grade software built for performance and scale." },
-    { icon: Smartphone, title: "Mobile & Web Apps", body: "Native and cross-platform apps with delightful UX." },
-    { icon: Cloud, title: "SaaS Product Development", body: "Multi-tenant SaaS architectures, billing & analytics ready." },
-    { icon: Cpu, title: "AI & Automation", body: "AI-powered features and workflow automation that move the needle." },
-    { icon: Palette, title: "UI / UX Design", body: "Design systems, product flows and interfaces users love." },
-    { icon: Server, title: "Backend & APIs", body: "Robust APIs, microservices and infrastructure that won't break." },
+    {
+      icon: Code2,
+      title: "Custom Software Development",
+      body: "Tailor-made enterprise-grade software built for your unique business requirements and built to scale.",
+    },
+    {
+      icon: MonitorSmartphone,
+      title: "Web Development",
+      body: "High-performance, responsive web applications crafted with modern frameworks and best practices.",
+    },
+    {
+      icon: Smartphone,
+      title: "Mobile App Development",
+      body: "Native and cross-platform mobile apps for iOS and Android with delightful user experiences.",
+    },
+    {
+      icon: Cpu,
+      title: "AI Solutions",
+      body: "AI-powered features, automation, and intelligent workflows that move the needle for your business.",
+    },
+    {
+      icon: Cloud,
+      title: "Cloud & DevOps",
+      body: "Scalable cloud infrastructure, CI/CD pipelines, and DevOps practices for reliable, fast delivery.",
+    },
+    {
+      icon: BriefcaseBusiness,
+      title: "IT Consulting",
+      body: "Strategic technology consulting to help you make the right architectural and business decisions.",
+    },
   ];
   return (
     <section id="services" className="py-24 bg-surface/40">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading
           eyebrow="Services"
-          title="What we build"
-          subtitle="A full-stack product team for design, engineering, AI and infra under one roof."
+          title="What We Build"
+          subtitle="A full-stack technology partner for software development, AI, cloud and consulting — all under one roof."
         />
         <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
@@ -327,63 +387,49 @@ function Services() {
   );
 }
 
-function Approach() {
-  const items = [
-    { icon: Zap, title: "Fast execution", body: "Weeks, not months." },
-    { icon: Target, title: "Product-first thinking", body: "Outcomes over outputs." },
-    { icon: HandshakeIcon, title: "Client partnership", body: "Your team, just better." },
-    { icon: Layers, title: "Scalable architecture", body: "Built to grow with you." },
-    { icon: Sparkles, title: "Innovation-driven", body: "Always shipping the future." },
-  ];
-  return (
-    <section id="approach" className="py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <SectionHeading eyebrow="How we work" title="Our Approach" />
-        <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          {items.map((i) => (
-            <div key={i.title} className="rounded-3xl border border-border bg-card p-6 shadow-card hover-lift hover:-translate-y-1 animate-fade-up">
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
-                <i.icon className="h-4 w-4" />
-              </span>
-              <h3 className="mt-4 font-semibold">{i.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground">{i.body}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
+/* ─────────────────────── Why Choose Prowexa ─────────────────────── */
 function WhyUs() {
   const items = [
-    "Startup speed + enterprise quality",
-    "Strategy + Design + Development",
-    "Rapid MVP development",
-    "High ownership mindset",
-    "Future-ready technologies",
+    { icon: Users, text: "Experienced Technology Professionals" },
+    { icon: Zap, text: "Agile Development Process" },
+    { icon: TrendingUp, text: "Scalable Solutions" },
+    { icon: Layers, text: "End-to-End Project Delivery" },
+    { icon: LifeBuoy, text: "Dedicated Support" },
+    { icon: Globe2, text: "Industry Expertise" },
   ];
   return (
-    <section className="py-24 bg-surface/40">
+    <section className="py-24">
       <div className="mx-auto max-w-7xl px-6 grid gap-12 lg:grid-cols-2 lg:items-center">
         <div>
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-brand-glow">Why choose us</span>
           <h2 className="mt-3 text-4xl font-bold tracking-tight md:text-5xl">
-            A product partner built for <span className="text-gradient-brand">founders & teams</span>
+            A technology partner built for <span className="text-gradient-brand">growth &amp; scale</span>
           </h2>
           <p className="mt-4 text-muted-foreground text-lg">
-            We blend the speed of a startup with the rigor of an enterprise team, so you can ship faster without
-            compromising quality.
+            We blend deep technical expertise with agile delivery so you can build faster, scale smarter and achieve
+            your business goals with confidence.
           </p>
+          <a
+            href="#contact"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("contact");
+            }}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-7 py-3.5 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition"
+          >
+            Get a Free Consultation <ArrowRight className="h-4 w-4" />
+          </a>
         </div>
-        <div className="grid gap-3">
-          {items.map((t) => (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {items.map((item) => (
             <div
-              key={t}
+              key={item.text}
               className="flex items-center gap-4 rounded-2xl border border-border bg-card p-5 shadow-card hover-lift hover:-translate-y-1 animate-fade-up"
             >
-              <CheckCircle2 className="h-5 w-5 text-brand-glow flex-none" />
-              <span className="font-medium">{t}</span>
+              <span className="flex h-10 w-10 flex-none items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
+                <item.icon className="h-4 w-4" />
+              </span>
+              <span className="font-medium text-sm">{item.text}</span>
             </div>
           ))}
         </div>
@@ -392,15 +438,59 @@ function WhyUs() {
   );
 }
 
-function EdTech() {
-  const items = [
-    "Internship-based programs",
-    "Skill development",
-    "Workshops",
-    "Practical learning",
+/* ─────────────────────── Industries ─────────────────────── */
+function Industries() {
+  const industries = [
+    { icon: Banknote, name: "Banking & Finance", desc: "Secure fintech platforms and financial software." },
+    { icon: HeartPulse, name: "Healthcare", desc: "Digital health solutions and patient management systems." },
+    { icon: BookOpen, name: "Education", desc: "EdTech platforms and learning management systems." },
+    { icon: ShoppingCart, name: "Retail & E-commerce", desc: "Scalable storefronts and commerce automation." },
+    { icon: Truck, name: "Logistics", desc: "Fleet management and supply chain software." },
+    { icon: Rocket, name: "Startups", desc: "MVP development and growth engineering for startups." },
   ];
   return (
-    <section className="py-24">
+    <section id="industries" className="py-24 bg-surface/40">
+      <div className="mx-auto max-w-7xl px-6">
+        <SectionHeading
+          eyebrow="Industries"
+          title="Industries We Serve"
+          subtitle="We build technology solutions across diverse sectors — from regulated industries to high-growth startups."
+        />
+        <div className="mt-14 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {industries.map((ind) => (
+            <div
+              key={ind.name}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-card hover-lift hover:-translate-y-1 hover:border-brand animate-fade-up"
+            >
+              <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-gradient-brand opacity-0 blur-3xl group-hover:opacity-30 transition" />
+              <div className="relative flex items-start gap-4">
+                <span className="flex h-12 w-12 flex-none items-center justify-center rounded-2xl bg-gradient-brand text-primary-foreground shadow-glow">
+                  <ind.icon className="h-5 w-5" />
+                </span>
+                <div>
+                  <h3 className="text-lg font-semibold">{ind.name}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">{ind.desc}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────── EdTech / Academy ─────────────────────── */
+function EdTech() {
+  const programs = [
+    "Java Full Stack",
+    "Python + AI",
+    "Data Analytics",
+    "Interview Preparation",
+    "Corporate Training",
+  ];
+  return (
+    <section id="academy" className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-14 shadow-card animate-fade-up">
           <div className="absolute -top-32 -left-20 h-80 w-80 rounded-full bg-gradient-brand opacity-20 blur-3xl" />
@@ -408,20 +498,30 @@ function EdTech() {
             <div>
               <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface/60 px-4 py-1.5 text-xs text-muted-foreground backdrop-blur">
                 <GraduationCap className="h-3.5 w-3.5 text-brand-glow" />
-                EdTech
+                Prowexa Academy
               </span>
-              <h2 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">Education & Training</h2>
+              <h2 className="mt-5 text-4xl font-bold tracking-tight md:text-5xl">Education &amp; Training</h2>
               <p className="mt-4 text-muted-foreground text-lg">
-                Goal: improve real-world skills & employability through hands-on learning.
+                Practical, industry-focused programs designed to build real-world skills and accelerate careers.
               </p>
+              <a
+                href="#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("contact");
+                }}
+                className="mt-7 inline-flex items-center gap-2 rounded-full bg-gradient-brand px-6 py-3 text-sm font-semibold text-primary-foreground shadow-glow hover:opacity-90 transition"
+              >
+                Explore Programs <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
             <div className="grid gap-3 sm:grid-cols-2">
-              {items.map((t) => (
+              {programs.map((t) => (
                 <div key={t} className="flex items-center gap-3 rounded-2xl border border-border bg-card/80 backdrop-blur p-4">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
+                  <span className="flex h-9 w-9 flex-none items-center justify-center rounded-xl bg-gradient-brand text-primary-foreground shadow-glow">
                     <Sparkles className="h-4 w-4" />
                   </span>
-                  <span className="font-medium">{t}</span>
+                  <span className="font-medium text-sm">{t}</span>
                 </div>
               ))}
             </div>
@@ -432,6 +532,48 @@ function EdTech() {
   );
 }
 
+/* ─────────────────────── Contact CTA ─────────────────────── */
+function ContactCTA() {
+  return (
+    <section className="py-24 bg-surface/40">
+      <div className="mx-auto max-w-5xl px-6">
+        <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-brand p-10 md:p-16 shadow-glow text-center animate-fade-up">
+          <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-white/10 blur-3xl" />
+          <div className="relative">
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
+              Let's Build Your Next Digital Product
+            </h2>
+            <p className="mt-4 text-white/80 text-lg">
+              Tell us about your vision. We'll help you turn it into a world-class digital product.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <a
+                href="#contact"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("contact");
+                }}
+                className="inline-flex items-center gap-2 rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-brand shadow-lg hover:bg-white/90 transition"
+              >
+                <CalendarCheck className="h-4 w-4" />
+                Schedule a Meeting
+              </a>
+              <a
+                href="mailto:info@prowexa.com"
+                className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-7 py-3.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/20 transition"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Contact Us
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ─────────────────────── Company Details ─────────────────────── */
 function CompanyDetails() {
   const details = [
     { icon: Building2, label: "Company Name", value: "Prowexa Technologies Pvt. Ltd." },
@@ -441,7 +583,7 @@ function CompanyDetails() {
     { icon: MapPin, label: "State", value: "Maharashtra" },
   ];
   return (
-    <section className="py-24 bg-surface/40">
+    <section className="py-24">
       <div className="mx-auto max-w-7xl px-6">
         <SectionHeading eyebrow="Company" title="Company Details" />
         <div className="mt-14 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -462,9 +604,10 @@ function CompanyDetails() {
   );
 }
 
+/* ─────────────────────── Contact ─────────────────────── */
 function Contact() {
   return (
-    <section id="contact" className="py-24">
+    <section id="contact" className="py-24 bg-surface/40">
       <div className="mx-auto max-w-5xl px-6">
         <div className="relative overflow-hidden rounded-[2rem] border border-border bg-gradient-hero p-10 md:p-16 shadow-glow text-center animate-fade-up">
           <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-brand opacity-30 blur-3xl" />
@@ -506,4 +649,3 @@ function Contact() {
     </section>
   );
 }
-
