@@ -16,7 +16,9 @@ export function Footer() {
         <div>
           <h4 className="text-sm font-semibold">Address</h4>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-            Prowexa Technologies <br>Smartworks 43EQ, Plot A, opposite Bharti Vidyapeeth School,<br> Balewadi, Pune, Maharashtra 411045
+            4th floor, Silviana,<br />
+            Opposite Gera's Regent Park and Towers,<br />
+            Baner, Pune
           </p>
         </div>
         <div>
@@ -30,7 +32,7 @@ export function Footer() {
       </div>
       <div className="border-t border-border">
         <div className="mx-auto max-w-7xl px-6 py-6 text-center text-xs text-muted-foreground">
-          © 2025 Prowexa Technologies Pvt. Ltd. All rights reserved
+          © 2026 Prowexa Technologies Pvt. Ltd. All rights reserved
         </div>
       </div>
     </footer>
