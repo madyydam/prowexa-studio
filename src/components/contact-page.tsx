@@ -116,7 +116,7 @@ export function ContactPage() {
                       </span>
                       <div>
                         <span className="text-xs uppercase tracking-wider font-semibold block text-brand-glow">Call Us</span>
-                        <p className="mt-1 font-medium text-foreground group-hover:text-brand transition-colors">+91 7030 247 209</p>
+                        <p className="mt-1 font-medium text-foreground group-hover:text-brand transition-colors">+91 7030 347 209</p>
                         <p className="text-xs mt-0.5">Mon-Sat, 10 AM - 7 PM IST</p>
                       </div>
                     </a>
