@@ -71,7 +71,7 @@ export function HomePage() {
 function WhatsAppButton() {
   return (
     <a
-      href="https://wa.me/917030247209?text=Hi%20Prowexa%2C%20I%20would%20like%20to%20discuss%20a%20project"
+      href="https://wa.me/917030347209?text=Hi%20Prowexa%2C%20I%20would%20like%20to%20discuss%20a%20project"
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat on WhatsApp"
