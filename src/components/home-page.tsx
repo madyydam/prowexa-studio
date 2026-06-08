@@ -621,7 +621,7 @@ function Contact() {
             <div className="mt-10 grid gap-4 sm:grid-cols-3">
               {[
                 { icon: Mail, label: "Email", value: "info@prowexa.com", href: "mailto:info@prowexa.com" },
-                { icon: Phone, label: "Phone", value: "7030247209", href: "tel:7030247209" },
+                { icon: Phone, label: "Phone", value: "7030247209", href: "tel:7030347209" },
                 { icon: Globe, label: "Website", value: "prowexa.com", href: "https://prowexa.com" },
               ].map((c) => (
                 <a
