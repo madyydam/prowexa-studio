@@ -613,7 +613,7 @@ function Contact() {
           <div className="absolute -top-32 left-1/2 h-80 w-80 -translate-x-1/2 rounded-full bg-gradient-brand opacity-30 blur-3xl" />
           <div className="relative">
             <h2 className="text-4xl md:text-5xl font-bold tracking-tight">
-              Let's build something amazing together <span className="inline-block">🚀</span>
+              Let's build something amazing together
             </h2>
             <p className="mt-4 text-muted-foreground text-lg">
               Tell us about your idea. We'll help you turn it into a product.
